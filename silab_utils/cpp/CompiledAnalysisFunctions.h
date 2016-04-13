@@ -9,6 +9,17 @@
 #include <exception>
 #include <algorithm>
 #include <sstream>
+#include <stdexcept>
+
+// for (u)int64_t and other tpes
+#ifdef _MSC_VER
+#define INFINITY (DBL_MAX+DBL_MAX)
+#define NAN (INFINITY-INFINITY)
+typedef __int64 int64_t;
+typedef unsigned __int64 uint64_t;
+#else
+#include <stdint.h>
+#endif
 
 
 // fast 1d index histogramming (bin size = 1, values starting from 0)
